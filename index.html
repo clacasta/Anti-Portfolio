@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Portfolio</title>
+    <script>
+        // Apply the theme before first paint: saved choice first, then the system preference.
+        (function () {
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) { }
+            if (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                theme = 'dark';
+            }
+            if (theme) document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark Mode">🌗</button>
+            </div>
+            <h1>Anti-Portfolio</h1>
+            <p class="subtitle">A graveyard of ideas that never made it.</p>
+        </header>
+
+        <main id="project-list" class="project-list">
+            <!-- Projects will be injected here by JS -->
+            <p class="status-message">Loading failed dreams...</p>
+        </main>
+
+        <footer>
+            <p>Inspired by <a href="https://github.com/kepano/flexoki" target="_blank" rel="noopener">Flexoki</a>.</p>
+        </footer>
+    </div>
+
+    <script src="marked.min.js"></script>
+    <script src="projects.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "anti-portfolio",
+  "version": "0.1.0",
+  "description": "A graveyard of ideas that never made it.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
